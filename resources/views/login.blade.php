@@ -6,13 +6,13 @@
     <title>Masuk | VocaMart24</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-yellow-400 min-h-screen flex items-center justify-center bg-cover bg-center" style="background-image: url('build/assets/images/login-bg2.jpg');">
+<body class="bg-yellow-400 min-h-screen flex items-center justify-center bg-cover bg-center" style="background-image: url('images/login-bg2.jpg');">
     <div class="bg-[#5882C1]/30 backdrop-blur-md shadow-lg rounded-xl w-full max-w-sm p-8 text-center border-2 border-[#5882C1]">
         <h1 class="text-2xl font-bold text-gray-800 mb-1">SELAMAT DATANG DI</h1>
         <h2 class="text-3xl font-extrabold text-black"><span class="text-black">VOCAMART</span><span class="text-orange-500">24</span></h2>
 
         <div class="flex justify-center my-4">
-            <img src="build/assets/images/logo.png" alt="VocaMart24 Logo" class="w-16 h-16">
+            <img src="images/logo.png" alt="VocaMart24 Logo" class="w-16 h-16">
         </div>
 
         <form method="POST" action="{{ route('login') }}" class="space-y-4">

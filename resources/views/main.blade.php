@@ -20,9 +20,9 @@
 
                 @if ($role == 1)
                 <!-- Customer -->
-                <x-sidebar-item link="{{ route('customer.home') }}" label="Beranda" icon="home" />
-                <x-sidebar-item link="{{ route('customer.cart') }}" label="Keranjang" icon="cart" />
-                <x-sidebar-item link="{{ route('customer.history') }}" label="Riwayat" icon="history" />
+                <x-sidebar-item link="{{ route('customer.home') }}" label="Beranda" icon="ic-home" />
+                <x-sidebar-item link="{{ route('customer.cart') }}" label="Keranjang" icon="ic-cart" />
+                <x-sidebar-item link="{{ route('customer.history') }}" label="Riwayat" icon="ic-history" />
                 @elseif (in_array($role, [2,3,4,5,6]))
                 <!-- Admin -->
                 <x-sidebar-item link="{{ route('admin.dashboard') }}" label="Dashboard" icon="ic-dashboard" />
