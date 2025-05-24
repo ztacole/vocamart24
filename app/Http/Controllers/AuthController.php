@@ -46,7 +46,7 @@ class AuthController extends Controller
         Auth::logout();
         session()->forget('user');
         session()->forget('access');
-        return redirect('/login');
+        return redirect('/');
     }
 
     public function showRegisterForm()
@@ -73,6 +73,6 @@ class AuthController extends Controller
             'role_id' => 1,
         ]);
 
-        return redirect('/login')->with('success', 'Registrasi berhasil! Silahkan login.');
+        return redirect('/')->with('success', 'Registrasi berhasil! Silahkan login.');
     }
 }
