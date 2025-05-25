@@ -1,12 +1,8 @@
 {
   "build": {
-    "builder": "nixpacks",
-    "config": {
-      "startCommand": "rm -rf public/storage && php artisan storage:link && chmod -R 775 storage/app/public public/storage && php artisan optimize:clear && php artisan serve --host=0.0.0.0 --port=${PORT}",
-      "webCommand": "php artisan serve --host=0.0.0.0 --port=${PORT}"
-    }
+    "builder": "nixpacks"
   },
   "deploy": {
-    "startCommand": "bash -c 'php artisan migrate --force && php artisan serve --host=0.0.0.0 --port=${PORT}'"
+    "startCommand": "bash -c 'rm -rf public/storage && php artisan storage:link && chmod -R 775 storage/app/public public/storage && php artisan migrate --force && php artisan optimize:clear && php artisan serve --host=0.0.0.0 --port=${PORT}'"
   }
 }
