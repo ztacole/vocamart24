@@ -52,7 +52,7 @@ class ProductController extends Controller
 
         $filename = null;
         if ($request->hasFile('image')) {
-            $filename = $request->file('image')->store('images', 'public');
+            $filename = $request->file('image')->store('public/images/products');
         }
 
         Product::create([
@@ -84,7 +84,7 @@ class ProductController extends Controller
         $product->price = $request->price;
 
         if ($request->hasFile('image')) {
-            $filename = $request->file('image')->store('images', 'public');
+            $filename = $request->file('image')->store('public/images/products');
             $product->image = $filename;
         }
 
