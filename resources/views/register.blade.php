@@ -34,7 +34,7 @@
 
         <p class="mt-4 text-sm text-gray-700">
             Sudah punya akun?
-            <a href="{{ route('login') }}" class="text-orange-600 font-semibold hover:underline">Masuk</a>
+            <a href="{{ route('login-form') }}" class="text-orange-600 font-semibold hover:underline">Masuk</a>
         </p>
     </div>
 </body>

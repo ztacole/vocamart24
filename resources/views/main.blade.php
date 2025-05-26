@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title>@yield('title')</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    @stack('styles')
 </head>
 
 <body class="bg-gray-100 text-gray-900">
@@ -44,6 +45,7 @@
             @yield('content')
         </main>
     </div>
+    @stack('scripts')
 </body>
 
 </html>

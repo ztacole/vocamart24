@@ -6,7 +6,7 @@
 <h2 class="text-2xl font-bold mb-6">Manajemen <span class="text-yellow-600">Produk</span></h2>
 <div class="flex justify-between mb-6">
     <div class="flex items-center gap-2">
-        <a href="#" onclick="openAddModal()" class="bg-yellow-500 hover:bg-green-600 text-white py-2 px-4 rounded">
+        <a href="#" onclick="openAddModal()" class="bg-yellow-500 hover:bg-yellow-600 text-white py-2 px-4 rounded">
             + Produk Baru
         </a>
     </div>
@@ -14,7 +14,7 @@
         <form action="{{ route('admin.product') }}" method="GET">
             @csrf
             <input type="text" name="search" value="{{ request()->query('search') }}" placeholder="Cari produk" class="border border-gray-300 rounded-lg px-2 py-1">
-            <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded">
+            <button type="submit" class="bg-yellow-500 hover:bg-yellow-600 text-white py-2 px-4 rounded">
                 Cari
             </button>
         </form>

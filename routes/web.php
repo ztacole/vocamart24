@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Route;
 
@@ -29,6 +30,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::middleware('role:2,3,4,5,6')->group(function () {
         Route::get('/dashboard', [App\Http\Controllers\AdminController::class, 'index'])->name('admin.dashboard');
+        Route::get('/api/transactions', [AdminController::class, 'getTransactionsByDate']);
 
         Route::get('/product', [App\Http\Controllers\ProductController::class, 'index'])->name('admin.product');
         Route::post('/product', [App\Http\Controllers\ProductController::class, 'store'])->name('admin.product.store');
