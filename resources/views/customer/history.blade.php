@@ -3,29 +3,29 @@
 @section('title', 'Riwayat | VocaMart24')
 
 @section('content')
-<h2 class="text-2xl font-bold mb-6">Riwayat Transaksi</h2>
+<h2 class="text-2xl font-bold mb-6 ml-4">Riwayat Transaksi</h2>
 <div class="bg-white shadow-md rounded-lg overflow-hidden">
     <div class="overflow-x-auto">
         <table class="w-full text-sm text-left text-gray-900 bg-white overflow-x-auto">
             <thead class="text-xs text-gray-700 uppercase bg-gray-200">
                 <tr>
-                    <th scope="col" class="px-6 py-3">Tanggal</th>
-                    <th scope="col" class="px-6 py-3">Status</th>
-                    <th scope="col" class="px-6 py-3">Jumlah Produk</th>
-                    <th scope="col" class="px-6 py-3">Total Pembayaran</th>
-                    <th scope="col" class="px-6 py-3">Aksi</th>
+                    <th scope="col" class="px-6 py-3 whitespace-nowrap">Tanggal</th>
+                    <th scope="col" class="px-6 py-3 whitespace-nowrap">Status</th>
+                    <th scope="col" class="px-6 py-3 whitespace-nowrap">Jumlah Produk</th>
+                    <th scope="col" class="px-6 py-3 whitespace-nowrap">Total Pembayaran</th>
+                    <th scope="col" class="px-6 py-3 whitespace-nowrap">Aksi</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach ($histories as $index => $transaction)
                 <tr class="{{ $index % 2 === 0 ? 'bg-white' : 'bg-gray-50' }} border-b">
-                    <td class="px-6 py-4">{{ $transaction->created_at->locale('id')->translatedFormat('l, d F Y H:i:s') }}</td>
-                    <td class="px-6 py-4">{{ $transaction->status }}</td>
-                    <td class="px-6 py-4">{{ $transaction->details->count() }}</td>
-                    <td class="px-6 py-4">Rp {{ number_format($transaction->details->sum(function ($detail) {
+                    <td class="px-6 py-4 whitespace-nowrap">{{ $transaction->created_at->locale('id')->translatedFormat('l, d F Y H:i:s') }}</td>
+                    <td class="px-6 py-4 whitespace-nowrap">{{ $transaction->status }}</td>
+                    <td class="px-6 py-4 whitespace-nowrap">{{ $transaction->details->count() }}</td>
+                    <td class="px-6 py-4 whitespace-nowrap">Rp {{ number_format($transaction->details->sum(function ($detail) {
                             return $detail->product->price * $detail->quantity;
                         }), 0, ',', '.') }}</td>
-                    <td class="px-6 py-4">
+                    <td class="px-6 py-4 whitespace-nowrap">
                         <button type="button" class="text-blue-600 hover:text-blue-900" onclick="document.getElementById('detailDialog-{{ $transaction->id }}').classList.remove('hidden');">
                             Lihat Detail
                         </button>

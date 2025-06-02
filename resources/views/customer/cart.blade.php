@@ -3,7 +3,7 @@
 @section('title', 'Keranjang | VocaMart24')
 
 @section('content')
-<h2 class="text-2xl font-bold mb-6">Keranjang</h2>
+<h2 class="text-2xl font-bold mb-6 ml-4">Keranjang</h2>
 
 @if($cartItems->isEmpty())
 <div class="bg-white p-6 rounded-lg text-center">
@@ -12,7 +12,7 @@
     <a href="{{ route('customer.home') }}" class="bg-yellow-500 text-white px-10 font-bold py-3 rounded-xl hover:bg-yellow-600 duration-300">Mulai Belanja</a>
 </div>
 @else
-<div class="space-y-4">
+<div class="space-y-4 pb-40">
     @foreach($cartItems as $cart)
     <div class="flex items-center justify-between bg-white shadow rounded-lg p-4">
         <div class="flex items-center gap-4">
@@ -41,11 +41,8 @@
     </div>
     @endforeach
 
-    <!-- Spacer agar konten bawah tidak ketutup sticky -->
-    <div class="h-40"></div>
-
     <!-- Transaksi Ringkasan -->
-    <div class="fixed bottom-0 left-64 w-[calc(100%-16rem)] z-50 bg-white shadow-md p-4">
+    <div id="transactionSummary" class="fixed bottom-0 left-0 right-0 w-full z-50 bg-white shadow-md p-4 transition-all duration-300">
         <h3 class="font-bold mb-2">Transaksi</h3>
         @php $total = 0; @endphp
         @foreach($cartItems as $cart)
@@ -65,9 +62,45 @@
         </div>
         <form action="{{ route('customer.cart.checkout') }}" method="GET" class="mt-4 text-center">
             @csrf
-            <button type="submit" name="checkout" class="bg-yellow-500 text-white font-semibold px-6 py-2 rounded hover:bg-yellow-600">Checkout</button>
+            <button type="submit" name="checkout" class="bg-yellow-500 text-white font-semibold px-6 py-2 rounded hover:bg-yellow-600 w-1/2">Checkout</button>
         </form>
     </div>
 </div>
 @endif
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const sidebar = document.getElementById('sidebar');
+    const transactionSummary = document.getElementById('transactionSummary');
+    
+    // Fungsi untuk mengecek state sidebar
+    function checkSidebarState() {
+        if (sidebar.classList.contains('-translate-x-full')) {
+            // Sidebar tertutup - tampilkan ringkasan
+            transactionSummary.classList.remove('hidden');
+        } else {
+            // Sidebar terbuka - sembunyikan ringkasan
+            transactionSummary.classList.add('hidden');
+        }
+    }
+    
+    // Jalankan saat pertama kali load
+    checkSidebarState();
+    
+    // Observasi perubahan class pada sidebar
+    const observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+            if (mutation.attributeName === 'class') {
+                checkSidebarState();
+            }
+        });
+    });
+    
+    // Mulai observasi
+    observer.observe(sidebar, {
+        attributes: true,
+        attributeFilter: ['class']
+    });
+});
+</script>
 @endsection

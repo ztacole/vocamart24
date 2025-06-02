@@ -86,7 +86,7 @@ class CartController extends Controller
             // Buat transaksi utama
             $transaction = TransactionHeader::create([
                 'user_id' => $user->id,
-                'status' => 'Pending', // atau 'Pending' kalau ada step pembayaran
+                'status' => 'Accepted', // atau 'Pending' kalau ada step pembayaran
                 'created_at' => now()
             ]);
 

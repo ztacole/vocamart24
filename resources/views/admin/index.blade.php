@@ -3,7 +3,7 @@
 @section('title', 'Dashboard | VocaMart24')
 
 @section('content')
-<h2 class="text-2xl font-bold mb-6">
+<h2 class="text-2xl font-bold mb-6 ml-4">
     Halo, <span class="text-yellow-600">{{ session('user.name') }}</span>!
 </h2>
 
@@ -173,7 +173,7 @@
 
         // Initialize datepicker
         flatpickr("#datepicker", {
-            inline: true, // <-- ini yang bikin langsung muncul
+            inline: true,
             dateFormat: "Y-m-d",
             defaultDate: "today",
             dateFormat: "Y-m-d",

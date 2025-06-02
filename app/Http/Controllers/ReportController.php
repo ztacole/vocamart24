@@ -19,6 +19,6 @@ class ReportController extends Controller
         return TransactionDetail::with('product', 'transactionHeader')
         ->whereHas('product', function ($query) use ($roleId) {
             $query->where('vocational_id', $roleId - 1);
-        })->get();
+        })->get()->sortByDesc('transactionHeader.created_at');
     }
 }

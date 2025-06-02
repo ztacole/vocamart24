@@ -3,7 +3,7 @@
 @section('title', 'Manajemen Produk | VocaMart24')
 
 @section('content')
-<h2 class="text-2xl font-bold mb-6">Manajemen <span class="text-yellow-600">Produk</span></h2>
+<h2 class="text-2xl font-bold mb-6 ml-4">Manajemen <span class="text-yellow-600">Produk</span></h2>
 <div class="flex justify-between mb-6">
     <div class="flex items-center gap-2">
         <a href="#" onclick="openAddModal()" class="bg-yellow-500 hover:bg-yellow-600 text-white py-2 px-4 rounded">
@@ -25,21 +25,21 @@
         <table class="w-full text-sm text-left text-gray-900 bg-white overflow-x-auto">
             <thead class="text-xs text-gray-700 uppercase bg-gray-200">
                 <tr>
-                    <th scope="col" class="px-6 py-3">Gambar Produk</th>
-                    <th scope="col" class="px-6 py-3">Nama Produk</th>
-                    <th scope="col" class="px-6 py-3">Stok</th>
-                    <th scope="col" class="px-6 py-3">Harga</th>
-                    <th scope="col" class="px-6 py-3">Aksi</th>
+                    <th scope="col" class="px-6 py-3 whitespace-nowrap">Gambar Produk</th>
+                    <th scope="col" class="px-6 py-3 whitespace-nowrap">Nama Produk</th>
+                    <th scope="col" class="px-6 py-3 whitespace-nowrap">Stok</th>
+                    <th scope="col" class="px-6 py-3 whitespace-nowrap">Harga</th>
+                    <th scope="col" class="px-6 py-3 whitespace-nowrap">Aksi</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach ($products as $index => $product)
                 <tr class="{{ $index % 2 === 0 ? 'bg-white' : 'bg-gray-50' }} border-b">
-                    <td class="px-6 py-4"><img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }} Image" class="w-16 h-16 object-cover rounded-lg"></td>
-                    <td class="px-6 py-4">{{ $product->name }}</td>
-                    <td class="px-6 py-4">{{ $product->stock }}</td>
-                    <td class="px-6 py-4">Rp {{ number_format($product->price, 0, ',', '.') }}</td>
-                    <td class="px-6 py-4">
+                    <td class="px-6 py-4 whitespace-nowrap"><img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }} Image" class="w-16 h-16 object-cover rounded-lg"></td>
+                    <td class="px-6 py-4 whitespace-nowrap">{{ $product->name }}</td>
+                    <td class="px-6 py-4 whitespace-nowrap">{{ $product->stock }}</td>
+                    <td class="px-6 py-4 whitespace-nowrap">Rp {{ number_format($product->price, 0, ',', '.') }}</td>
+                    <td class="px-6 py-4 whitespace-nowrap">
                         <div class="flex items-center gap-2">
                             <button
                                 type="button"
