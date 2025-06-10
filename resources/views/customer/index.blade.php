@@ -43,6 +43,7 @@
                     <form action="{{ route('customer.cart.store') }}" method="POST">
                         @csrf
                         <input type="hidden" name="productId" value="{{ $product->id }}">
+                        <h3 class="text-sm text-gray-600">Stok tersedia: {{ $product->stock }}</h3>
                         <input type="number" name="quantity" min="1" value="1" max="{{ $product->stock }}" class="border rounded px-2 py-1 w-full mb-3" required>
                         <div class="flex justify-end gap-2">
                             <button type="button" onclick="document.getElementById('quantityDialog-{{ $product->id }}').classList.add('hidden');" class="bg-gray-300 hover:bg-gray-400 px-3 py-1 rounded">Batal</button>

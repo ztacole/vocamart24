@@ -24,6 +24,7 @@
             </div>
         </div>
         <div class="flex items-center space-x-2">
+            <h3 class="text-sm text-gray-600 pr-4">Stok tersedia: {{ $cart->product->stock }}</h3>        
             <form action="{{ route('customer.cart.decrease') }}" method="POST">
                 @csrf
                 @method('PUT')

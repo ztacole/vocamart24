@@ -19,7 +19,7 @@
             @csrf
             <input type="text" name="name" placeholder="Nama Anda" required class="w-full px-4 py-2 rounded-lg bg-white bg-opacity-70 placeholder-gray-700 ring-2 ring-gray-200 focus:outline-none focus:ring-2 focus:ring-orange-500 {{ $errors->has('name') ? 'border-red-500' : '' }}">
             <input type="email" name="email" placeholder="E-Mail" required class="w-full px-4 py-2 rounded-lg bg-white bg-opacity-70 placeholder-gray-700 ring-2 ring-gray-200 focus:outline-none focus:ring-2 focus:ring-orange-500 {{ $errors->has('email') ? 'border-red-500' : '' }}">
-            <input type="password" name="password" placeholder="Password" required class="w-full px-4 py-2 rounded-lg bg-white bg-opacity-70 placeholder-gray-700 ring-2 ring-gray-200 focus:outline-none focus:ring-2 focus:ring-orange-500 {{ $errors->has('password') ? 'border-red-500' : '' }}">
+            <input type="password" name="password" placeholder="Password" required pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$" class="w-full px-4 py-2 rounded-lg bg-white bg-opacity-70 placeholder-gray-700 ring-2 ring-gray-200 focus:outline-none focus:ring-2 focus:ring-orange-500 {{ $errors->has('password') ? 'border-red-500' : '' }}" title="Password harus mengandung minimal 8 karakter, 1 huruf kapital, 1 huruf kecil, 1 angka, dan 1 karakter khusus">
             @error('name')
                 <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
             @enderror

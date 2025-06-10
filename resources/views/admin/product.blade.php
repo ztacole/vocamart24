@@ -72,19 +72,19 @@
             @csrf
             <div class="mb-3">
                 <label class="block mb-1 font-medium">Nama Produk</label>
-                <input type="text" name="name" class="w-full border rounded px-3 py-2" required>
+                <input type="text" name="name" class="w-full border rounded px-3 py-2" pattern="[A-Za-z0-9]+" required title="Nama produk hanya boleh mengandung huruf dan angka">
             </div>
             <div class="mb-3">
                 <label class="block mb-1 font-medium">Stok</label>
-                <input type="number" name="stock" class="w-full border rounded px-3 py-2" required>
+                <input type="number" name="stock" min="1" class="w-full border rounded px-3 py-2" required>
             </div>
             <div class="mb-3">
                 <label class="block mb-1 font-medium">Harga</label>
-                <input type="number" name="price" class="w-full border rounded px-3 py-2" required>
+                <input type="number" name="price" min="1" class="w-full border rounded px-3 py-2" required>
             </div>
             <div class="mb-4">
                 <label class="block mb-1 font-medium">Gambar</label>
-                <input type="file" name="image" accept="image/*" class="w-full">
+                <input type="file" name="image" accept="image/*" class="w-full" required>
             </div>
             <div class="flex justify-end gap-2">
                 <button type="button" onclick="closeAddModal()" class="px-4 py-2 bg-gray-300 rounded">Batal</button>
@@ -103,19 +103,19 @@
             <input type="hidden" id="editProductId" name="id">
             <div class="mb-4">
                 <label for="editName" class="block font-medium">Nama Produk</label>
-                <input type="text" id="editName" readonly name="name" class="w-full border border-gray-300 rounded px-3 py-2">
+                <input type="text" id="editName" readonly name="name" class="w-full border border-gray-300 rounded px-3 py-2" pattern="[A-Za-z0-9]+" required title="Nama produk hanya boleh mengandung huruf dan angka">
             </div>
             <div class="mb-4">
                 <label for="editStock" class="block font-medium">Stok</label>
-                <input type="number" id="editStock" name="stock" class="w-full border border-gray-300 rounded px-3 py-2">
+                <input type="number" id="editStock" name="stock" min="1" required class="w-full border border-gray-300 rounded px-3 py-2">
             </div>
             <div class="mb-4">
                 <label for="editPrice" class="block font-medium">Harga</label>
-                <input type="number" id="editPrice" name="price" class="w-full border border-gray-300 rounded px-3 py-2">
+                <input type="number" id="editPrice" name="price" min="1" required class="w-full border border-gray-300 rounded px-3 py-2">
             </div>
             <div class="mb-4">
                 <label for="editImage" class="block font-medium">Gambar Baru (opsional)</label>
-                <input type="file" id="editImage" name="image" class="w-full">
+                <input type="file" id="editImage" name="image" class="w-full" required>
                 <img id="editPreviewImage" src="" alt="Preview Gambar" class="mt-2 w-24 h-24 object-cover">
             </div>
             <div class="flex justify-end gap-2">
